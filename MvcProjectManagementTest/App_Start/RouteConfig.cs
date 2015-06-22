@@ -18,6 +18,14 @@ namespace MvcProjectManagementTest
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Performers",
+                url: "{controller}/{action}/{id}");
+
+            routes.MapRoute(
+                name: "ProductTasks",
+                url: "{controller}/{action}/{id}");
         }
     }
 }
