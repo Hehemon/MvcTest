@@ -9,9 +9,13 @@ namespace MvcProjectManagementTest.Models
 {
     public enum TaskStatus
     {
+        [Display(Name = "Not started")]
         NotStarted,
+        [Display(Name = "In Process")]
         InProcess,
+        [Display(Name = "Done")]
         Done,
+        [Display(Name = "Delayed")]
         Delayed,
     }
 
@@ -37,6 +41,8 @@ namespace MvcProjectManagementTest.Models
 
         [Required]
         public TaskStatus Status { get; set; }
+
+        public Performer Performer { get; set; }
         
     }
 }
