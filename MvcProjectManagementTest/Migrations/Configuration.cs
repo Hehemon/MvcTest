@@ -45,6 +45,7 @@ namespace MvcProjectManagementTest.Migrations
                     StartTime = DateTime.Parse("2015-10-12"),
                     PlannedTime = new TimeSpan(2,2,2),
                     Status = TaskStatus.NotStarted,
+                  
                 },
                 new ProductTask
                 {
