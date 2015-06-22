@@ -32,7 +32,9 @@ namespace MvcProjectManagementTest.Migrations
                 },
                 new Performer
                 {
-                    
+                    Surname = "asf",
+                    Name = "asd",
+                    MiddleName = "asd",
                 });
 
             context.Tasks.AddOrUpdate(i => i.Name,
