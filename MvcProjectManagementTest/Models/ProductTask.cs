@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNet.Identity;
 
 namespace MvcProjectManagementTest.Models
 {
@@ -13,13 +15,27 @@ namespace MvcProjectManagementTest.Models
         Delayed,
     }
 
-    public class Task
+    public class ProductTask
     {
         public int Id { get; set; }
+
+        [StringLength(60, MinimumLength = 4)]
+        [Required]
         public string Name { get; set; }
+
+        [Display(Name = "Planned Time"), DataType(DataType.Duration)]
+        [Required]
         public TimeSpan PlannedTime { get; set; }
+
+        [Display(Name = "Start Time"), DataType(DataType.DateTime)]
+        [Required]
         public DateTime StartTime { get; set; }
+
+        [Display(Name = "End Time"), DataType(DataType.DateTime)]
+        [Required]
         public DateTime EndTime { get; set; }
+
+        [Required]
         public TaskStatus Status { get; set; }
         
     }
