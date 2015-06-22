@@ -1,3 +1,5 @@
+using MvcProjectManagementTest.Models;
+
 namespace MvcProjectManagementTest.Migrations
 {
     using System;
@@ -15,18 +17,41 @@ namespace MvcProjectManagementTest.Migrations
 
         protected override void Seed(MvcProjectManagementTest.Models.TaskManagerDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            context.Performers.AddOrUpdate(i => i.Surname,
+                new Performer
+                {
+                    Surname =  "Ivanonov",
+                    Name = "Ivan",
+                    MiddleName = "Ivanovich",
+                },
+                new Performer
+                {
+                    Surname = "Vasechkin",
+                    Name = "Petka",
+                    MiddleName = "Petrovich",
+                },
+                new Performer
+                {
+                    
+                });
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            context.Tasks.AddOrUpdate(i => i.Name,
+                new ProductTask
+                {
+                    Name = "First",
+                    EndTime = DateTime.Parse("2015-12-12"),
+                    StartTime = DateTime.Parse("2015-10-12"),
+                    PlannedTime = new TimeSpan(2,2,2),
+                    Status = TaskStatus.NotStarted,
+                },
+                new ProductTask
+                {
+                    Name = "Second",
+                    EndTime = DateTime.Parse("2015-10-10"),StartTime = DateTime.Parse("2015-8-8"),
+                    PlannedTime = new TimeSpan(0, 3, 3),
+                    Status = TaskStatus.NotStarted,
+                });
+
         }
     }
 }
